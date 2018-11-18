@@ -5,10 +5,12 @@ winsize = cc.size()
 var CS = CS || {};
 
 CS.SHIP = {
-    SPEED : 100,
-    BULLETSPEED : 200,
-    HP : 3,
+    SPEED : 250,
+    BULLETSPEED : 1000,
+    HP : 5,
 }
+
+CS.ISLIVING = true
 
 CS.SHIP.STATE = {
     PLAYING : 0,
@@ -20,14 +22,20 @@ CS.KEYS = []
 CS.LIFE = 3
 
 CS.TYPE = {
-    ENEMY_BULLET : 0,
     SHIP_BULLET : 1,
-    ENEMY : 2,
+    ASTEROID : 2,
     SHIP : 3,
 }
 
 CS.POOL = {
-    ENEMIES:[],
-    ENEMY_BULLETS:[],
+    ASTEROID:[],
     SHIP_BULLETS:[],
+    BACKSKYS :[],
+    BACKTILEMAPS : [],
 }
+
+CS.ACTIVE_ASTEROIDS = 0
+
+CS.MAX_ASTEROIDS = 7
+
+CS.SCORE = 0;

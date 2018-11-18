@@ -35,12 +35,19 @@
         "src/libs/md5.js",
         "src/libs/signals.js",
         "src/libs/underscore.js",
+        "src/modules/GameConfig.js",
         "src/modules/animation/ScreenDragonbones.js",
         "src/modules/localization/ScreenLocalization.js",
         "src/modules/mainmenu/ScreenMenu.js",
         "src/modules/GamePlay/ScreenNewGame.js",
+        "src/modules/GamePlay/GameLayer.js",
+        "src/modules/GameObjects/Ship.js",
+        "src/modules/GameObjects/Bullet.js",
+        "src/modules/GameObjects/Asteroid.js",
+        "src/modules/GameObjects/Background.js",
         "src/modules/testnetwork/network/Network.js",
         "src/modules/testnetwork/network/Packet.js",
-        "src/modules/testnetwork/ScreenNetwork.js"
+        "src/modules/testnetwork/ScreenNetwork.js",
+        "src/modules/localization/ScreenLocalization.js"
     ]
 }

@@ -7,14 +7,21 @@ var Ship = cc.Sprite.extend({
     bulletSpeed : CS.SHIP.BULLETSPEED,
     HP : CS.SHIP.HP,
     state : CS.SHIP.STATE.PLAYING,
-    appearPosition : cc.p(winsize.width/3,winSize.height/2),
+    appearPosition : cc.p(300,300),
+    zOrder:1000,
     active:true,
     bornSprite:null,
     canBeAttack:true,
     ctor:function(){
-        this.super("");
+        this._super("#SpaceFlier_sm_1.png");
+        this.tag = this.zOrder;
         this.x = this.appearPosition.x;
         this.y = this.appearPosition.y;
+        this.initBornSprite();
+        //this.born();
+
+        this.schedule(this.shoot, 1 / 3);
+
     },
     update: function(dt){
         this.updateMove(dt);
@@ -38,21 +45,24 @@ var Ship = cc.Sprite.extend({
         }
     },
     shoot:function(){
+        var bullet = Bullet.getOrCreateBullet(this.bulletSpeed);
+        bullet.x = this.x + this.width/2 + 10;
+        bullet.y  = this.y;
 
     },
     destroy: function () {
-        CS.LIFE --;
+        CS.ISLIVING = false
     },
     hurt:function(){
         if(this.canBeAttack){
             this.HP --;
         }
     },
-    collideRect : function(x,y){
-        return cc.Rect(x-this.width/2, y-this.height/2);
+    collideRect : function(){
+        return cc.rect(this.x-this.width/2, this.y-this.height/2, this.width, this.height);
     },
     initBornSprite:function () {
-        this.bornSprite = new cc.Sprite("#");
+        this.bornSprite = new cc.Sprite("#SpaceFlier_lg_1.png");
         this.bornSprite.setBlendFunc(cc.SRC_ALPHA, cc.ONE);
         this.bornSprite.x = this.width / 2;
         this.bornSprite.y = this.height / 2;

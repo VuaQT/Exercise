@@ -11,7 +11,7 @@ var ScreenNewGame = cc.Layer.extend({
     ctor:function() {
         this._super();
         this.loadGui();
-//        this.addChild(new GameLayer());
+        this.addChild(new GameLayer());
     },
     loadGui:function()
     {

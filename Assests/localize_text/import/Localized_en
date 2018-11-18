@@ -37,7 +37,7 @@ NAME_TAB_BEAR_HOUSE		="House Bear"
 TITLE_INFO			="Announcement"
 TITLE_CONFIRM			="Confirm"
 Text_Info_Full_Inv		="Barn Full!"
-TEXT_NOT_ENOUGH_RESOURCE	="Not Enough Resources"
+TEXT_NOT_ENOUGH_RESOURCE	="Not Enough res.Resources"
 Text_Detail_Upgrade_Inv		= "Increase Storeage to :"
 
 

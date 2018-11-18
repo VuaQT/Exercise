@@ -6,25 +6,28 @@ var ScreenMenu = cc.Layer.extend({
     _itemMenu:null,
     _beginPos:0,
     isMouseDown:false,
-
+    lbScore:null,
     ctor:function() {
         this._super();
         var size = cc.director.getVisibleSize();
-
+        winsize = cc.winSize;
         var yBtn = 7*size.height/12;
 
-        var btnNewGame = gv.commonButton(200, 64, cc.winSize.width/4, yBtn,"New Game");
+        var btnNewGame = gv.commonButton(200, 64, cc.winSize.width/2, yBtn,"New Game");
         this.addChild(btnNewGame);
         btnNewGame.addClickEventListener(this.onSelectNewGame.bind(this));
 
-        var btnSetting = gv.commonButton(200, 64, cc.winSize.width/2, yBtn,"Setting");
-        this.addChild(btnSetting);
-//        btnSetting.addClickEventListener(this.onSelectSetting.bind(this));
-
-        var btnAbout = gv.commonButton(200, 64, 3*cc.winSize.width/4, yBtn,"About");
-        this.addChild(btnAbout);
-//        btnAbout.addClickEventListener(this.onSelectAbout.bind(this));
-
+        this.lbScore = new cc.LabelBMFont("Your score : " + CS.SCORE, res.arial_fnt);
+        this.lbScore.attr({
+            anchorX: 0,
+            anchorY: 0,
+            x: cc.winSize.width/2 - 100,
+            y: cc.winSize.height/2-100,
+            color : cc.color(255,0,0)
+        });
+        this.lbScore.textAlign = cc.TEXT_ALIGNMENT_RIGHT;
+        this.addChild(this.lbScore);
+        //this.lbScore.visible = !CS.ISLIVING;
     },
     onEnter:function(){
         this._super();
@@ -33,13 +36,5 @@ var ScreenMenu = cc.Layer.extend({
     {
         fr.view(ScreenNewGame);
     },
-//    onSelectSetting:function(sender)
-//    {
-//        fr.view(ScreenSetting);
-//    },
-//    onSelectAbout:function(sender)
-//    {
-//        fr.view(ScreenAbout);
-//    }
 
 });
